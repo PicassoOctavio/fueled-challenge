@@ -3,7 +3,6 @@ import { Login } from "../auth";
 import {  About, Home } from "../pages";
 import { useAuthStore } from "../hooks/useAuthStore";
 
-
 export const AppRouter = () => {
   const { status } = useAuthStore()
   return (
@@ -12,13 +11,13 @@ export const AppRouter = () => {
         ? (
           <>
             <Route path="/" element={<Login />} /> 
-            <Route path="/*" element={<Navigate to="/auth/login" />} />
+            <Route path="/*" element={<Navigate to="/" />} />
           </>
         ) : (
           <>
             <Route path="/home" element={<Home />} />
             <Route path="/about" element={<About />} />
-            <Route path="/*" element={<Navigate to="/" />} />
+            <Route path="/*" element={<Navigate to="/home" />} />
           </>
         )
       }
