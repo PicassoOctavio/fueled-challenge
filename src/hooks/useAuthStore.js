@@ -1,9 +1,10 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { fueledApi } from "../api";
 import { clearErrorMessage, onLogin, onLogout } from "../store/auth/authSlice";
 
 export const useAuthStore = () => {
   const dispatch = useDispatch();
+  const { status } = useSelector((state) => state.auth);
 
   const startLogin = async ({ username, password }) => {
     try {
@@ -36,6 +37,7 @@ export const useAuthStore = () => {
   };
 
   return {
+    status,
     startLogin,
     startLogout,
   };
