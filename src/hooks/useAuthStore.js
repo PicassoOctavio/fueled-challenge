@@ -31,14 +31,47 @@ export const useAuthStore = () => {
     }
   };
 
+  const checkAuthToken = async () => {
+    const token = localStorage.getItem("token");
+
+    if (!token) return dispatch(onLogout());
+
+    try {
+      const response = await fueledApi.post(
+        "/jwt-auth/v1/token/validate",
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      console.log({ response });
+
+      dispatch(
+        onLogin({
+          token,
+        })
+      );
+    } catch (error) {
+      console.log(error);
+      localStorage.clear();
+      dispatch(onLogout());
+    }
+  };
+
   const startLogout = () => {
     localStorage.clear();
     dispatch(onLogout());
   };
 
   return {
+    //properties
     status,
+    // methods
     startLogin,
     startLogout,
+    checkAuthToken,
   };
 };
