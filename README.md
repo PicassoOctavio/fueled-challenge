@@ -1,12 +1,55 @@
-# React + Vite
+## Blog App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Frontend application built with **React + Vite**, using **Redux Toolkit** for global state management, **JWT authentication**, and posts consumption via API.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Installation
 
-## Expanding the ESLint configuration
+Clone this repository:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+git clone https://github.com/PicassoOctavio/fueled-challenge
+cd fueled-challenge
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+---
+
+## ▶️ Run development server
+
+```bash
+npm run dev
+```
+
+This will start the development server at [http://localhost:5173](http://localhost:5173).
+
+---
+
+## 🏗️ Available scripts
+
+- `npm run dev` → start the Vite development server.
+- `npm run build` → build the project for production.
+- `npm run preview` → preview the production build locally.
+- `npm run lint` → run ESLint to check for code style and errors.
+
+---
+
+## 📂 Project structure
+
+```
+src/
+ ├── api/              # Axios instance (with interceptors)
+ ├── components/       # Reusable UI components
+ │    └── Post.jsx     # Renders a post (title, author, content)
+ ├── hooks/            # Custom hooks (useAuthStore, useBlogStore, etc.)
+ ├── pages/            # Main views (Login, Home, About, etc.)
+ ├── router/           # Routing with react-router-dom
+ ├── store/            # Redux Toolkit slices and configuration
+ └── App.jsx           # App entry point
+```
