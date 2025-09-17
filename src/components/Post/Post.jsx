@@ -31,9 +31,6 @@ export const Post = ({createdDate, author, content}) => {
 
       </header>
 
-        {/* <div itemprop="articleBody" className="content">
-          {content || null}
-        </div> */}
         <div
           itemProp="articleBody"
           className="content"
